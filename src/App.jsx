@@ -1,14 +1,32 @@
 
+import { useState } from 'react'
 import './App.css'
+import Blog from './components/Blog/Blog'
+import Blogs from './components/Blogs/Blogs'
+import Bookmark from './components/Bookmark/Bookmark'
+import Header from './components/Header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  const [bookmarks, setBookmarks] = useState([])
+
+  const handleToBookmark = blog => {
+    console.log(blog)
+  }
 
   return (
     <>
+
      
-      <h1 className='text-3xl bg-amber-500  text-red-500'>knowledge cafe</h1>
+      <Header></Header>
       
+      
+
+      <div className='md:flex max-w-6xl mx-auto'>
+      <Blogs handleToBookmark={handleToBookmark} ></Blogs>
+      <Bookmark></Bookmark>
+      
+      </div>
     </>
   )
 }
