@@ -6,15 +6,15 @@ const Blog = ({blog, handleToBookmark}) => {
     const {title,cover_photo,reading_time, author_img, author_name, post_date,hashTag} = blog;
 
     return (
-        <div>
+        <div className="my-10">
             <img className="w-full rounded-lg" src={cover_photo} alt="" />
             <div className="flex items-center justify-between">
                 <div className="flex items-center" >
                     <img className=" w-14 rounded-full" src={author_img} alt="" />
 
-                    <div className="ml-6">
-                        <h3>{author_name}</h3>
-                        <p>{post_date}</p>
+                    <div className="ml-6 my-4">
+                        <h3 className="font-bold">{author_name}</h3>
+                        <h4>{post_date}</h4>
                     </div>
 
                 </div>
@@ -27,7 +27,7 @@ const Blog = ({blog, handleToBookmark}) => {
 
                 </div>
             </div>
-            <h2 className="text-4xl">{title}</h2>
+            <h2 className="text-2xl font-bold">{title}</h2>
             <p>
                 {
                     hashTag.map((hash, idx)=> <span key={idx}> {hash} <a href=""></a> </span>)

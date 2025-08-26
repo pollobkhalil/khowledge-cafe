@@ -1,9 +1,11 @@
 
+const Bookmark = ({bookmark}) => {
 
-const Bookmark = () => {
+    const {title} = bookmark
+
     return (
-        <div className="md:w-1/3">
-            <h2>Bookmark</h2>
+        <div className="bg-white py-3 rounded-lg mt-4 px-2">
+            <p>{title}</p>
         </div>
     );
 };

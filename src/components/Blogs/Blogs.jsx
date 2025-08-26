@@ -22,8 +22,7 @@ const Blogs = ({handleToBookmark}) => {
             key={blog.id}
             handleToBookmark={handleToBookmark}
 
-
-            ></Blog>)
+            ></Blog>)  
           }
         </div>
     );

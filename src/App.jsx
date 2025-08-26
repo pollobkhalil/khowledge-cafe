@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Blog from './components/Blog/Blog'
 import Blogs from './components/Blogs/Blogs'
-import Bookmark from './components/Bookmark/Bookmark'
+import Bookmarks from './components/Bookmarks/Bookmarks'
 import Header from './components/Header/Header'
 
 function App() {
@@ -11,7 +11,9 @@ function App() {
   const [bookmarks, setBookmarks] = useState([])
 
   const handleToBookmark = blog => {
-    console.log(blog)
+    
+    const newBookmarks = [...bookmarks, blog]
+    setBookmarks(newBookmarks);
   }
 
   return (
@@ -24,7 +26,7 @@ function App() {
 
       <div className='md:flex max-w-6xl mx-auto'>
       <Blogs handleToBookmark={handleToBookmark} ></Blogs>
-      <Bookmark></Bookmark>
+      <Bookmarks bookmarks={bookmarks}></Bookmarks>
       
       </div>
     </>
