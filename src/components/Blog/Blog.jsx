@@ -1,46 +1,54 @@
-
 import { FaRegBookmark } from "react-icons/fa6";
 
-const Blog = ({blog, handleToBookmark, handleReadingTime}) => {
+const Blog = ({ blog, handleToBookmark, handleReadingTime }) => {
+  const {
+    title,
+    cover_photo,
+    reading_time,
+    author_img,
+    author_name,
+    post_date,
+    hashTag,
+  } = blog;
 
-    const {title,cover_photo,reading_time, author_img, author_name, post_date,hashTag} = blog;
+  return (
+    <div className=" p-5  lg:p-0 lg:my-10 space-y-4">
+      <img className="w-full rounded-lg" src={cover_photo} alt="" />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <img className=" w-14 rounded-full" src={author_img} alt="" />
 
-    return (
-        <div className="my-10 space-y-4">
-            <img className="w-full rounded-lg" src={cover_photo} alt="" />
-            <div className="flex items-center justify-between">
-                <div className="flex items-center" >
-                    <img className=" w-14 rounded-full" src={author_img} alt="" />
-
-                    <div className="ml-6 my-4">
-                        <h3 className="font-bold">{author_name}</h3>
-                        <h4>{post_date}</h4>
-                    </div>
-
-                </div>
-
-                <div>
-
-                    <span>{reading_time} min read </span>
-                    <button onClick={() => handleToBookmark(blog)}><FaRegBookmark /></button>
-                    
-
-                </div>
-            </div>
-            <h2 className="text-2xl font-bold">{title}</h2>
-            <p>
-                {
-                    hashTag.map((hash, idx)=> <span key={idx}> {hash} <a href=""></a> </span>)
-                }
-            </p>
-
-            <button 
-            onClick={() => handleReadingTime(reading_time)}
-            className="text-blue-700 underline " >Mark as read
-
-            </button>
+          <div className="ml-6 my-4">
+            <h3 className="font-bold">{author_name}</h3>
+            <h4>{post_date}</h4>
+          </div>
         </div>
-    );
+
+        <div>
+          <span>{reading_time} min read </span>
+          <button onClick={() => handleToBookmark(blog)}>
+            <FaRegBookmark />
+          </button>
+        </div>
+      </div>
+      <h2 className="text-2xl font-bold">{title}</h2>
+      <p>
+        {hashTag.map((hash, idx) => (
+          <span key={idx}>
+            {" "}
+            {hash} <a href=""></a>{" "}
+          </span>
+        ))}
+      </p>
+
+      <button
+        onClick={() => handleReadingTime(reading_time)}
+        className="text-blue-700 underline "
+      >
+        Mark as read
+      </button>
+    </div>
+  );
 };
 
 export default Blog;

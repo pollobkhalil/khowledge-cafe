@@ -32,7 +32,7 @@ function App() {
       
       
 
-      <div className='md:flex max-w-6xl mx-auto'>
+      <div className=' lg:flex max-w-6xl mx-auto'>
       <Blogs handleToBookmark={handleToBookmark} handleReadingTime={handleReadingTime} ></Blogs>
       <Bookmarks bookmarks={bookmarks} readingTime={readingTime}></Bookmarks>
       
