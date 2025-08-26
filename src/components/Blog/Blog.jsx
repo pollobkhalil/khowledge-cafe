@@ -1,12 +1,12 @@
 
 import { FaRegBookmark } from "react-icons/fa6";
 
-const Blog = ({blog, handleToBookmark}) => {
+const Blog = ({blog, handleToBookmark, handleReadingTime}) => {
 
     const {title,cover_photo,reading_time, author_img, author_name, post_date,hashTag} = blog;
 
     return (
-        <div className="my-10">
+        <div className="my-10 space-y-4">
             <img className="w-full rounded-lg" src={cover_photo} alt="" />
             <div className="flex items-center justify-between">
                 <div className="flex items-center" >
@@ -33,6 +33,12 @@ const Blog = ({blog, handleToBookmark}) => {
                     hashTag.map((hash, idx)=> <span key={idx}> {hash} <a href=""></a> </span>)
                 }
             </p>
+
+            <button 
+            onClick={() => handleReadingTime(reading_time)}
+            className="text-blue-700 underline " >Mark as read
+
+            </button>
         </div>
     );
 };
